@@ -16,10 +16,10 @@
   <div id="main">
     <h2 id="title"><img id="logo" src="vex.png">VEX Paper Wallet</h2>
   <canvas id="publicKeyCanvas"></canvas>
-  <div class="subtitle">Public Key : </div>
+  <div class="subtitle public">Public Key : </div>
   <div id="publicKey"></div>
   <canvas id="privateKeyCanvas"></canvas>
-  <div class="subtitle">Private Key : </div>
+  <div class="subtitle private">Private Key : </div>
   <div id="privateKey"></div>
   </div>
   
@@ -57,6 +57,12 @@
     }
     #title {
       text-align: center;
+    }
+    .public {
+      color:green;
+    }
+    .private {
+      color: red;
     }
     canvas {
       margin-top : 30px;
