@@ -5,9 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vex Paper Wallet</title>
+    <script src="https://cdn.jsdelivr.net/npm/vexjs-ecc@4.0.6/lib/vexjs-ecc.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA==" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
+  
+  
+  <div id="main">
+    <h2 id="title">Vex Paper Wallet</h2>
+  <canvas id="publicKeyCanvas"></canvas>
+  <div class="subtitle">Public Key : </div>
+  <div id="publicKey"></div>
+  <canvas id="privateKeyCanvas"></canvas>
+  <div class="subtitle">Private Key : </div>
+  <div id="privateKey"></div>
+  </div>
+  
+  <style>
+    #main {
+      margin:25px 25px;
+      padding:5px 25px 25px 25px;
+      border:5px solid #000;
+      text-align: center;
+      display: block;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+    #title {
+      text-align: center;
+    }
+    canvas {
+      margin-top : 20px;
+    }
+  </style>
+  
+  <script>
+    var ecc = vexjs_ecc
+    
+    function initialize(){
+      
+      ecc.randomKey().then(privateWif =>  {
+        let publicKey = ecc.privateToPublic(privateWif)
+
+        document.getElementById("publicKey").textContent = publicKey;
+        var qr = new QRious({
+          element: document.getElementById('publicKeyCanvas'),
+          value: publicKey,
+          size: 150
+        });
+
+        document.getElementById("privateKey").textContent = privateWif;
+        var qr = new QRious({
+          element: document.getElementById('privateKeyCanvas'),
+          value: privateWif,
+          size: 150
+        });
+      })
+    }
+    
+    initialize()
+  </script>
 
 </body>
 
