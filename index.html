@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vex Paper Wallet</title>
+    <title>VEX Paper Wallet</title>
     <script src="https://cdn.jsdelivr.net/npm/vexjs-ecc@4.0.6/lib/vexjs-ecc.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" integrity="sha512-pUhApVQtLbnpLtJn6DuzDD5o2xtmLJnJ7oBoMsBnzOkVkpqofGLGPaBJ6ayD2zQe3lCgCibhJBi4cj5wAxwVKA==" crossorigin="anonymous"></script>
     
@@ -14,7 +14,7 @@
   
   
   <div id="main">
-    <h2 id="title">Vex Paper Wallet</h2>
+    <h2 id="title"><img id="logo" src="vex.png">VEX Paper Wallet</h2>
   <canvas id="publicKeyCanvas"></canvas>
   <div class="subtitle">Public Key : </div>
   <div id="publicKey"></div>
@@ -27,6 +27,9 @@
   body {
     background:#000;
     
+  }
+  #logo {
+    width:30px;
   }
     #main {
       margin:25px auto;
